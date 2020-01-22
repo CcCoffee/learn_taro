@@ -34,3 +34,21 @@
   import Taro, { useState } from '@tarojs/taro'
   export default class Index {}
   ```
+### 6. Taro配置路由
+* 在app.jsx中配置pages数组，pages[0]将作为默认首页
+  ```javascript
+  config = {
+    pages: [
+      'pages/blog/blog',
+      'pages/index/index'
+    ],
+  }
+  ```
+* 通过`#`方式访问 : `http://172.20.10.4:10086/#/pages/index/index`
+### 7. Taro的6种页面跳转方式
+1. navigateTo: 最基本的跳转方式，可以返回上级页面。三端都支持的，小程序、H5、React Native。
+2. redirectTo：不记录上集页面，直接跳转。三端都支持的，小程序、H5、React Native。
+3. switchTab： Tab之间进行切换，这个要配合Taro的导航栏一起使用，三端都支持的，小程序、H5、React Native。
+4. navigateBack: 返回上一级页面，这个在小程序中常使用，三端都支持的，小程序、H5、React Native。
+5. relaunch：关闭所有额面，打开到应用内某个页面。三端都支持的，小程序、H5、React Native。
+6. getCurrentPages:获取当前页面信息所用，这个H5是不支持的。（注意）

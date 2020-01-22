@@ -1,28 +1,15 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro, { useState } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import Child from './Child'
 import './index.less'
 
-export default class Index extends Component {
+export default function Index() {
 
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  config = {
-    navigationBarTitleText: '首页'
-  }
-
-  render () {
-    return (
-      <View className='index'>
-        <Text>第一个微信小程序!！</Text>
-      </View>
-    )
-  }
+  const [userName,setUserName] = useState("Kevin")
+  return (
+    <View className='index'>
+      <Text>首页</Text>
+      <Child userName={userName}></Child>
+    </View>
+  )
 }
