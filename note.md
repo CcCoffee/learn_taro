@@ -52,3 +52,13 @@
 4. navigateBack: 返回上一级页面，这个在小程序中常使用，三端都支持的，小程序、H5、React Native。
 5. relaunch：关闭所有额面，打开到应用内某个页面。三端都支持的，小程序、H5、React Native。
 6. getCurrentPages:获取当前页面信息所用，这个H5是不支持的。（注意）
+### 8. 接收路由传递的参数
+`http://172.20.10.4:10086/#/pages/index/index?title=My%20blog&author=Kevin%20Zheng`
+
+使用this.$router.params接收参数
+```javascript
+useEffect(()=>{
+  setTitle(this.$router.params.title);
+  setAuthor(this.$router.params.author);
+},[])
+```
