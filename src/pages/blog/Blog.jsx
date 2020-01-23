@@ -24,8 +24,9 @@ export default function Blog(){
   return (
     <View>
       <Text>
-        Blog
-      </Text>
+        {author === 'Kevin Zheng' ? "Kevin's Blog":"Other's Blog"}
+      </Text>&nbsp;
+      <Text>{1==1 && 'true' || 'false'}</Text>
       <Button onClick={backToHome}>返回首页</Button>
       <Image src={img} />&nbsp;
       <Image src={require("../../static/1.png")} />

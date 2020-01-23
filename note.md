@@ -90,4 +90,15 @@ useEffect(()=>{
     )
   }
   ```
-
+### 10. Taro的条件运算符
+> Taro不能使用if else语句，只能使用三目运算符和短路运算符
+* 三目运算符
+```javascript
+<Text>
+  {author === 'Kevin Zheng' ? "Kevin's Blog":"Other's Blog"}
+</Text>
+```
+* 短路运算符
+```javascript
+<Text>{1==1 && 'true' || 'false'}</Text>
+```
