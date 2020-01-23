@@ -62,3 +62,32 @@ useEffect(()=>{
   setAuthor(this.$router.params.author);
 },[])
 ```
+### 9. Taro静态文件的使用
+* 工具方法的引入
+    - src/tools/index.js
+      ```javascript
+      export function foo(){
+        console.log("foo...")
+      }
+
+      export function bar(){
+        console.log("bar...")
+      }
+      ```
+    - 引入代码
+      ```javascript
+      import {foo,bar} from '../../tools'
+      ```
+* 两种图片的引入方式
+  ```javascript
+  import img from '../../static/1.png'
+  export default function Blog(){
+    return (
+      <View>
+        <Image src={img} />&nbsp;
+        <Image src={require("../../static/1.png")} />
+      </View>
+    )
+  }
+  ```
+

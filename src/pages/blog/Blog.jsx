@@ -1,10 +1,18 @@
-import Taro,{useState} from '@tarojs/taro'
-import {View, Text, Button} from '@tarojs/components'
+import Taro,{useState,useEffect, requirePlugin} from '@tarojs/taro'
+import {View, Text, Button, Image} from '@tarojs/components'
+// import Tools from '../../tools'
+import {foo,bar} from '../../tools'
+import img from '../../static/1.png'
 
 export default function Blog(){
 
   const [title,setTitle] = useState('My blog')
   const [author,setAuthor] = useState('Kevin Zheng')
+
+  useEffect(()=>{
+    foo();
+    bar();
+  },[])
 
   const backToHome = function(){
     // Taro.navigateTo({url:"/pages/index/index"});
@@ -19,6 +27,8 @@ export default function Blog(){
         Blog
       </Text>
       <Button onClick={backToHome}>返回首页</Button>
+      <Image src={img} />&nbsp;
+      <Image src={require("../../static/1.png")} />
     </View>
   )
 }
