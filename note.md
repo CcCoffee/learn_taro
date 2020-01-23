@@ -102,3 +102,5 @@ useEffect(()=>{
 ```javascript
 <Text>{1==1 && 'true' || 'false'}</Text>
 ```
+### 11. Taro异步获取数据
+与通过Axios方式获取数据相同

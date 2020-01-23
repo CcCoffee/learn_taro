@@ -8,6 +8,7 @@ export default function Blog(){
 
   const [title,setTitle] = useState('My blog')
   const [author,setAuthor] = useState('Kevin Zheng')
+  const [articleList, serArticleList] = useState([]);
 
   useEffect(()=>{
     foo();
@@ -21,6 +22,18 @@ export default function Blog(){
     Taro.redirectTo({url:`/pages/index/index?title=${title}&author=${author}`})
   }
 
+  const handleArticleList = function(){
+    Taro.request({
+      method: 'GET',
+      url: 'https://apiblog.jspang.com/default/getArticleList'
+    }).then(
+      res=>{
+        console.log(res.data.list)
+        serArticleList(res.data.list)
+      }
+    )
+  }
+
   return (
     <View>
       <Text>
@@ -28,8 +41,18 @@ export default function Blog(){
       </Text>&nbsp;
       <Text>{1==1 && 'true' || 'false'}</Text>
       <Button onClick={backToHome}>返回首页</Button>
+      <Button onClick={handleArticleList}>获取文章列表</Button>
       <Image src={img} />&nbsp;
       <Image src={require("../../static/1.png")} />
+      <View>
+        {
+          articleList.map((item,index)=>{
+            return (
+            <View key={item.id}>{index+1} : {item.title}</View>
+            )
+          })
+        }
+      </View>
     </View>
   )
 }
